@@ -12,12 +12,12 @@ YOUTUBE_API_KEY = "AIzaSyBojew3-80CSCk2cz0IbKOEwScV9NiF3Kw"
 
 @app.route("/")
 def index():
-    # Получение популярных фильмов
+    
     popular_url = f"{BASE_URL}/movie/popular?api_key={API_KEY}&language=ru-RU"
     popular_response = requests.get(popular_url)
     popular_movies = popular_response.json().get("results", [])
     
-    # Получение топовых фильмов
+    
     top_rated_url = f"{BASE_URL}/movie/top_rated?api_key={API_KEY}&language=ru-RU"
     top_rated_response = requests.get(top_rated_url)
     top_rated_movies = top_rated_response.json().get("results", [])
@@ -192,7 +192,7 @@ def api_search(lang, query):
     response = requests.get(search_url)
     if response.status_code == 200:
         results = response.json().get("results", [])
-        # Возвращаем только id и title
+        
         titles = [{"id": movie["id"], "title": movie["title"]} for movie in results]
         return jsonify({"results": titles})
     else:
