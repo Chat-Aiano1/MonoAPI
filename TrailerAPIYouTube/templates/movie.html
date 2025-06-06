@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }} - КиноПлатформа Трейлеров YouTube</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1>🎬 КиноПлатформа Трейлер YouTube</h1>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/#popular">Популярные</a></li>
+            <li><a href="/#top-rated">Лучшие</a></li>
+        </ul>
+    </nav>
+
+    <section class="movie-section">
+        <div class="movie-container">
+            <h1>{{ movie.title }}</h1>
+            <div class="movie-details">
+                <img src="{{ image_base }}{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
+                <div class="info">
+                    <p><strong>Рейтинг:</strong> {{ movie.vote_average }}/10</p>
+                    <p><strong>Дата выпуска:</strong> {{ movie.release_date }}</p>
+                    <p><strong>Описание:</strong> {{ movie.overview }}</p>
+                </div>
+            </div>
+            {% if trailer_key %}
+            <div class="trailer">
+                <h2>Трейлер</h2>
+                <iframe width="560" height="315" src="{{ youtube_base }}{{ trailer_key }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 КиноПлатформа Трейлеров YouTube. Все права защищены.</p>
+    </footer>
+</body>
+</html>

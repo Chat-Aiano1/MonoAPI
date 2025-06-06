@@ -1,0 +1,431 @@
+body {
+    margin: 0;
+    font-family: 'Vollkorn', serif;
+    background-color: #0a0a0a;
+    color: #f0f0f0;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background: #1c2526;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: #00eaff;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-left: 25px;
+}
+
+.navbar-links a {
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 8px rgba(0, 234, 255, 0.6);
+}
+
+.hero {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3f5?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: heroFade 10s infinite;
+}
+
+@keyframes heroFade {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    color: #00eaff;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #b0bec5;
+    margin: 15px 0 25px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-form input {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    font-family: 'Vollkorn', serif;
+    border: 2px solid #00eaff;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.search-form input::placeholder {
+    color: #b0bec5;
+    font-style: italic;
+}
+
+.search-form input:focus {
+    border-color: #ffcc00;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.search-button {
+    padding: 10px 20px;
+    background: #00eaff;
+    color: #0a0a0a;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.search-button:hover {
+    background: #ffcc00;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+}
+
+.search-error {
+    text-align: center;
+    color: #ff6f61;
+    font-size: 1.2rem;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.title-search-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title-search-list li {
+    padding: 10px;
+    background: #1c1c1c;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.title-search-list li a {
+    color: #00eaff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-family: 'Vollkorn', serif;
+}
+
+.title-search-list li a:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+h2 {
+    text-align: center;
+    color: #00eaff;
+    font-size: 2.8rem;
+    margin: 60px 0 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.movie-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.movie-card {
+    background: #1c1c1c;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.movie-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 234, 255, 0.3);
+}
+
+.movie-card-inner {
+    position: relative;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover img {
+    transform: scale(1.05);
+}
+
+.movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    text-align: center;
+    z-index: 2;
+}
+
+.movie-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.movie-info p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #b0bec5;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+}
+
+.release-date {
+    font-size: 1rem;
+    color: #78909c;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #1c2526;
+    color: #78909c;
+    margin-top: 60px;
+    font-size: 1.1rem;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navbar-brand h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    .navbar-links {
+        margin-top: 10px;
+    }
+
+    .navbar-links li {
+        margin: 0 15px;
+    }
+
+    .navbar-links a {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        height: 40vh;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        letter-spacing: 2.5px;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .search-form input {
+        width: 160px;
+        font-size: 1rem;
+    }
+
+    .search-button {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+    }
+
+    .search-error {
+        font-size: 1.1rem;
+    }
+
+    .title-search-list li {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .movie-card img {
+        height: 280px;
+    }
+
+    .movie-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .movie-info p {
+        font-size: 1rem;
+    }
+
+    .release-date {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .search-form input {
+        width: 140px;
+        font-size: 0.9rem;
+    }
+
+    .search-button {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .movie-card img {
+        height: 220px;
+    }
+
+    .movie-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .movie-info p {
+        font-size: 0.9rem;
+    }
+
+    .release-date {
+        font-size: 0.8rem;
+    }
+
+    .title-search-list li {
+        font-size: 1rem;
+    }
+}

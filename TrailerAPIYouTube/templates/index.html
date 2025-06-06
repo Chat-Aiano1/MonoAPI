@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КиноПлатформа</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1>🎬 КиноПлатформа</h1>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="#popular">Популярные</a></li>
+            <li><a href="#top-rated">Лучшие</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Открой мир кино</h1>
+            <p>Найдите свои любимые фильмы по ID или названию, или просмотрите популярные новинки!</p>
+            <div class="search-container">
+                <!-- Поиск по ID -->
+                <form action="/search" method="post" class="search-form">
+                    <input type="number" name="movie_id" placeholder="Введите ID фильма" required>
+                    <button type="submit" class="search-button">Найти по ID</button>
+                </form>
+                <!-- Поиск по названию -->
+                <form action="/search_by_title" method="post" class="search-form">
+                    <input type="text" name="movie_title" placeholder="Введите название фильма" required>
+                    <button type="submit" class="search-button">Найти по названию</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    {% if search_result %}
+    <section class="movie-section">
+        <h2>Результат поиска по ID</h2>
+        <div class="movie-grid">
+            <a href="/movie/{{ search_result.id }}" class="movie-card">
+                <div class="movie-card-inner">
+                    <img src="{{ image_base }}{{ search_result.poster_path }}" alt="{{ search_result.title }}" loading="lazy">
+                    <div class="movie-overlay"></div>
+                    <div class="movie-info">
+                        <h3>{{ search_result.title }}</h3>
+                        <p>Рейтинг: {{ search_result.vote_average }}/10</p>
+                        <p class="release-date">Дата: {{ search_result.release_date }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    {% elif search_error %}
+    <section class="movie-section">
+        <h2>Результат поиска по ID</h2>
+        <p class="search-error">{{ search_error }}</p>
+    </section>
+    {% endif %}
+
+    {% if title_search_results %}
+    <section class="movie-section">
+        <h2>Результат поиска по названию</h2>
+        <ul class="title-search-list">
+            {% for movie in title_search_results %}
+            <li><a href="/movie/{{ movie.id }}">{{ movie.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% elif title_search_error %}
+    <section class="movie-section">
+        <h2>Результат поиска по названию</h2>
+        <p class="search-error">{{ title_search_error }}</p>
+    </section>
+    {% endif %}
+
+    <section id="popular" class="movie-section">
+        <h2>🔥 Популярные фильмы</h2>
+        <div class="movie-grid">
+            {% for movie in popular_movies %}
+            <a href="/movie/{{ movie.id }}" class="movie-card">
+                <div class="movie-card-inner">
+                    <img src="{{ image_base }}{{ movie.poster_path }}" alt="{{ movie.title }}" loading="lazy">
+                    <div class="movie-overlay"></div>
+                    <div class="movie-info">
+                        <h3>{{ movie.title }}</h3>
+                        <p>Рейтинг: {{ movie.vote_average }}/10</p>
+                        <p class="release-date">Дата: {{ movie.release_date }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="top-rated" class="movie-section">
+        <h2>🏆 Лучшие фильмы</h2>
+        <div class="movie-grid">
+            {% for movie in top_rated_movies %}
+            <a href="/movie/{{ movie.id }}" class="movie-card">
+                <div class="movie-card-inner">
+                    <img src="{{ image_base }}{{ movie.poster_path }}" alt="{{ movie.title }}" loading="lazy">
+                    <div class="movie-overlay"></div>
+                    <div class="movie-info">
+                        <h3>{{ movie.title }}</h3>
+                        <p>Рейтинг: {{ movie.vote_average }}/10</p>
+                        <p class="release-date">Дата: {{ movie.release_date }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 КиноПлатформа. Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.movie-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+        });
+    </script>
+</body>
+</html>
