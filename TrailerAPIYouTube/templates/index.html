@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>КиноПлатформа</title>
+    <title>🎬 КіноПлатформа YouTube Трейлерів із Фільму</title>
     <link rel="stylesheet" href="/static/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Vollkorn:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
@@ -11,29 +11,28 @@
 <body>
     <nav class="navbar">
         <div class="navbar-brand">
-            <h1>🎬 КиноПлатформа</h1>
+            <h1>🎬 КіноПлатформа YouTube Трейлерів із Фільму</h1>
         </div>
-        <ul class="navbar-links">
-            <li><a href="/">Главная</a></li>
-            <li><a href="#popular">Популярные</a></li>
-            <li><a href="#top-rated">Лучшие</a></li>
+        <ul class="navbar-links">                           <li><a href="/">Головна</a></li>
+            <li><a href="#popular">Популярні</a></li>
+            <li><a href="#top-rated">Кращі</a></li>
         </ul>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Открой мир кино</h1>
-            <p>Найдите свои любимые фильмы по ID или названию, или просмотрите популярные новинки!</p>
+            <h1>Відкрий мир кіно</h1>
+            <p>Знайдіть свої улюблені фільми по ID або назві, або подивіться популярні новинки Трейлерів із Фільму!</p>
             <div class="search-container">
-                <!-- Поиск по ID -->
+                <!-- Пошук по ID -->
                 <form action="/search" method="post" class="search-form">
-                    <input type="number" name="movie_id" placeholder="Введите ID фильма" required>
-                    <button type="submit" class="search-button">Найти по ID</button>
+                    <input type="number" name="movie_id" placeholder="Введіть ID фильму" required>
+                    <button type="submit" class="search-button">Знайти по ID</button>
                 </form>
-                <!-- Поиск по названию -->
+                <!-- Пошук по назві -->
                 <form action="/search_by_title" method="post" class="search-form">
-                    <input type="text" name="movie_title" placeholder="Введите название фильма" required>
-                    <button type="submit" class="search-button">Найти по названию</button>
+                    <input type="text" name="movie_title" placeholder="Введіть назву фільма" required>
+                    <button type="submit" class="search-button">Найти по назві</button>
                 </form>
             </div>
         </div>
@@ -41,7 +40,7 @@
 
     {% if search_result %}
     <section class="movie-section">
-        <h2>Результат поиска по ID</h2>
+        <h2>Результат пошуку по ID</h2>
         <div class="movie-grid">
             <a href="/movie/{{ search_result.id }}" class="movie-card">
                 <div class="movie-card-inner">
@@ -58,14 +57,14 @@
     </section>
     {% elif search_error %}
     <section class="movie-section">
-        <h2>Результат поиска по ID</h2>
+        <h2>Результат пошуку по ID</h2>
         <p class="search-error">{{ search_error }}</p>
     </section>
     {% endif %}
 
     {% if title_search_results %}
     <section class="movie-section">
-        <h2>Результат поиска по названию</h2>
+        <h2>Результат пошуку по назві</h2>
         <ul class="title-search-list">
             {% for movie in title_search_results %}
             <li><a href="/movie/{{ movie.id }}">{{ movie.title }}</a></li>
@@ -74,13 +73,13 @@
     </section>
     {% elif title_search_error %}
     <section class="movie-section">
-        <h2>Результат поиска по названию</h2>
+        <h2>Результат пошуку по назві</h2>
         <p class="search-error">{{ title_search_error }}</p>
     </section>
     {% endif %}
 
     <section id="popular" class="movie-section">
-        <h2>🔥 Популярные фильмы</h2>
+        <h2>🔥 Популярні фільми</h2>
         <div class="movie-grid">
             {% for movie in popular_movies %}
             <a href="/movie/{{ movie.id }}" class="movie-card">
@@ -99,7 +98,7 @@
     </section>
 
     <section id="top-rated" class="movie-section">
-        <h2>🏆 Лучшие фильмы</h2>
+        <h2>🏆 Кращі фільми</h2>
         <div class="movie-grid">
             {% for movie in top_rated_movies %}
             <a href="/movie/{{ movie.id }}" class="movie-card">
@@ -118,7 +117,7 @@
     </section>
 
     <footer>
-        <p>© 2025 КиноПлатформа. Все права защищены.</p>
+        <p>© 2025 🎬 КіноПлатформа YouTube Трейлерів із Фільму. Всі права захищені.</p>
     </footer>
 
     <script>
