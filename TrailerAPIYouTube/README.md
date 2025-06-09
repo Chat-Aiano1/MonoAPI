@@ -795,3 +795,11 @@ http://127.0.0.1:8000/api/search/us-US/Интерстеллар
   "total_pages": 509,
   "total_results": 10178
 }
+
+# Запуск програми Flask Server
+
+python flask.py
+
+# Запуск програми FastAPI
+
+python fast.py
