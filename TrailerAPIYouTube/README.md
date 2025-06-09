@@ -62,10 +62,10 @@ http://127.0.0.1:8000/api/search/us-US/Интерстеллар
 
 *Наприклад FastAPI Endpoint*
 
-Пииклади Ендпоінтів API 
+# Приклади Ендпоінтів API 
 
 
-127.0.0.1:8000/api/movie/us-US/videos/550
+# 127.0.0.1:8000/api/movie/us-US/videos/550
 
 {
   "id": 550,
@@ -135,7 +135,7 @@ http://127.0.0.1:8000/api/search/us-US/Интерстеллар
 
 
 
-127.0.0.1:8000/api/movie/popular
+# 127.0.0.1:8000/api/movie/popular
 
 {
   "page": 1,
@@ -466,7 +466,7 @@ http://127.0.0.1:8000/api/search/us-US/Интерстеллар
 }
 
 
-127.0.0.1:8000/api/movie/top_rated
+# 127.0.0.1:8000/api/movie/top_rated
 
 {
   "page": 1,
